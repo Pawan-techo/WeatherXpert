@@ -1,0 +1,161 @@
+body {
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Weather Card */
+.weather-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+}
+
+.city-name {
+    font-size: 2rem;
+}
+
+.temp {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.weather-icon {
+    width: 100px;
+}
+
+.animate-icon {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+/* hourly forecast*/
+.hourly-forecast {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
+    white-space: nowrap;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.hour-card {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Animations */
+.animated-btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.animated-btn:hover {
+    transform: scale(1.1);
+    background-color: #0056b3;
+}
+
+/* City Auto-Suggestions */
+.suggestion-box {
+    position: absolute;
+    background: rgb(63, 61, 61);
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: none;
+    z-index: 1000;
+    border-radius: 5px;
+}
+
+.suggestion-box li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-box li:hover {
+    background: #3e3a3a;
+}
+/* Hourly Forecast - Scrollable on All Screens */
+.hourly-forecast-container {
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    white-space: nowrap;
+    padding-bottom: 10px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+/* Webkit (Chrome, Safari) Scrollbar Customization */
+.hourly-forecast-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.hourly-forecast-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.hourly-forecast {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+}
+
+.hour-card {
+    min-width: 120px; /* Fixed width for each hour */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.hour-card:hover {
+    transform: scale(1.1);
+}
+
+.hour-card img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Ensure Scrollability on Larger Screens */
+@media (min-width: 1024px) {
+    .hourly-forecast-container {
+        max-width: 800px;
+        margin: auto;
+        overflow-x: auto;
+    }
+
+    .hourly-forecast {
+        justify-content: flex-start;
+    }
+}

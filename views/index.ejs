@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherXpert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <div class="container mt-5 text-center">
+        <h1 class="title">🌦 WeatherXpert</h1>
+
+        <!-- Search Bar with Auto-Suggestions -->
+        <form action="/weather" method="POST" class="mt-4">
+            <div class="input-group">
+                <input type="text" class="form-control" id="cityInput" name="city" placeholder="Enter city name" required autocomplete="off">
+                <ul id="suggestions" class="suggestion-box"></ul>
+                <button type="submit" class="btn btn-primary animated-btn">Get Weather</button>
+            </div>
+        </form>
+
+        <!-- Error Message -->
+        <% if (error) { %>
+            <p class="error mt-3"><%= error %></p>
+        <% } else if (city) { %>
+
+        <!-- Weather Info -->
+        <div class="weather-card mt-4">
+            <h2 class="city-name"><%= city %></h2>
+            <img class="weather-icon animate-icon" src="https://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="Weather Icon">
+            <p class="temp">🌡 <%= temp %>°C</p>
+            <p class="description">📌 <%= description %></p>
+            <p>📅 <%= date %> | 📆 <%= day %> | ⏰ <%= time %></p>
+        </div>
+
+        <!-- Scrollable Hourly Forecast -->
+        <h3 class="mt-4">📅 Hourly Forecast</h3>
+        <div class="hourly-forecast-container">
+            <div class="hourly-forecast">
+                <% if (hourlyForecast && hourlyForecast.length > 0) { %>
+                    <% hourlyForecast.forEach(hour => { %>
+                        <div class="hour-card">
+                            <p><%= hour.time %></p>
+                            <% if (hour.icon) { %>
+                                <img src="https://openweathermap.org/img/wn/<%= hour.icon %>@2x.png" alt="Weather Icon">
+                            <% } else { %>
+                                <p>No Icon</p>
+                            <% } %>
+                            <p><%= hour.temp %>°C</p>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <p>No hourly forecast available.</p>
+                <% } %>
+            </div>
+        </div>
+
+        <% } %>
+
+    </div>
+    
+    <script src="/script.js"></script>
+</body>
+</html>
