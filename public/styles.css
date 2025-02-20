@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+   background: linear-gradient(to right, #141e30, #243b55);
     font-family: 'Arial', sans-serif;
     color: white;
     text-align: center;
@@ -97,19 +97,18 @@ body {
 }
 
 .suggestion-box li:hover {
-    background: #3e3a3a;
+    background: #363434;
 }
-/* Hourly Forecast - Scrollable on All Screens */
+/* Hourly Forecast*/
 .hourly-forecast-container {
     width: 100%;
-    overflow-x: auto; /* Enables horizontal scrolling */
+    overflow-x: auto;
     white-space: nowrap;
     padding-bottom: 10px;
-    scrollbar-width: thin; /* For Firefox */
+    scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 }
 
-/* Webkit (Chrome, Safari) Scrollbar Customization */
 .hourly-forecast-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -125,11 +124,11 @@ body {
     gap: 15px;
     padding: 10px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 .hour-card {
-    min-width: 120px; /* Fixed width for each hour */
+    min-width: 120px;
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(5px);
     border-radius: 10px;
@@ -147,7 +146,7 @@ body {
     height: 50px;
 }
 
-/* Ensure Scrollability on Larger Screens */
+/* Scrollability on Larger Screens */
 @media (min-width: 1024px) {
     .hourly-forecast-container {
         max-width: 800px;

@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
 </head>
 <body>
 
@@ -28,12 +32,12 @@
         <% } else if (city) { %>
 
         <!-- Weather Info -->
-        <div class="weather-card mt-4">
+        <div class="weather-card mt-4 wow fadeInUp" data-wow-duration="1.5s">
             <h2 class="city-name"><%= city %></h2>
-            <img class="weather-icon animate-icon" src="https://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="Weather Icon">
-            <p class="temp">🌡 <%= temp %>°C</p>
-            <p class="description">📌 <%= description %></p>
-            <p>📅 <%= date %> | 📆 <%= day %> | ⏰ <%= time %></p>
+            <img class="weather-icon animate-icon wow bounceIn" src="https://openweathermap.org/img/wn/<%= icon %>@2x.png" alt="Weather Icon">
+            <p class="temp wow fadeInLeft">🌡 <%= temp %>°C</p>
+            <p class="description wow fadeInRight">📌 <%= description %></p>
+            <p class="wow fadeInUp">📅 <%= date %> | 📆 <%= day %> | ⏰ <%= time %></p>
         </div>
 
         <!-- Scrollable Hourly Forecast -->
